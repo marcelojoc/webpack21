@@ -32,6 +32,9 @@ const Template = async () => {
           <a href="https://instagram.com/gndx">
             <img src="../src/assets/images/instagram.png" />
           </a>
+          <a href="https://instagram.com/gndx">
+            <img src="../src/assets/images/instagram.png" />
+          </a>          
         </div>
       </div>
     </div>
