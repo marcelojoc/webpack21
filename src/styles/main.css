@@ -239,7 +239,7 @@ body {
 	position: relative;
 	padding: 20px 0;
 	width: 100%;
-	background: #fff;
+	background: rgb(163, 24, 24);
 	border-radius: 3px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .5);
 	overflow: hidden;
@@ -320,7 +320,7 @@ body {
 
 .circle svg {
   fill: none;
-  stroke: #8a3ab9;
+  stroke: #bcc71f;
   stroke-linecap: round;
   stroke-width: 3;
   stroke-dasharray: 1;
