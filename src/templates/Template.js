@@ -29,6 +29,9 @@ const Template = async () => {
           <a href="https://github.com/gndx">
             <img src="../src/assets/images/github.png" />
           </a>
+          <a href="https://github.com/gndx">
+          <img src="../src/assets/images/github.png" />
+        </a>
           <a href="https://instagram.com/gndx">
             <img src="../src/assets/images/instagram.png" />
           </a>
