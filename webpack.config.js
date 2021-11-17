@@ -2,11 +2,14 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // plugin para manejar html
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // plugin para manejar css iportado en js
 const CopyPlugin = require('copy-webpack-plugin');  // para copiar archivos con webpack
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');  // para minimizar el css
+const TerserPlugin = require('terser-webpack-plugin');  // para hashear los contenidos
+
 module.exports = {
   entry: "./src/index.js", // nombre de archivo de entrada
   output: { // directorio de salida y nombre de salida
     path: path.resolve(__dirname, "dist"), 
-    filename: "main.js",
+    filename: '[name].[contenthash].js', // esta modificacion es para que genere e archivo con hash para pisar el cache
     assetModuleFilename: 'assets/images/[hash][ext][query]' // config para las imagenes  y las fonts cada una en su directorio
   },
 
@@ -58,7 +61,9 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     }),
-    new MiniCssExtractPlugin(), // plugin para css  en diferentes documentos
+    new MiniCssExtractPlugin({    
+      filename: 'assets/[name].[contenthash].css'
+    }), // plugin para css  en diferentes documentos  hasheados en esta configuracion
     new CopyPlugin({ // aqui le digo que archivos voy a mover
       patterns: [
         {
@@ -67,7 +72,15 @@ module.exports = {
         }
       ]
     })
-  ]
+  ],
+
+  optimization: {  // esta parte es para soporte de optimizacion para css y js 
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin(),
+    ]
+  }
 
 
 };
