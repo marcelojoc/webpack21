@@ -29,6 +29,10 @@ module.exports = {
             'css-loader',
             'sass-loader'
           ],
+        },
+        {  // este loader es para poder importar imagenes , quedan en base 64
+          test: /\.png/,
+          type: 'asset/resource'
         }
       ]
   },
