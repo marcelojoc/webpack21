@@ -1,4 +1,22 @@
+
+/*
+aqui saco  este import desde las fuentes de google  y coloco
+la importacion local de las fuentes
+este no va
 @import "https://fonts.googleapis.com/css?family=Ubuntu:300,400,500";
+
+*/
+
+
+/* este si */
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('../assets/fonts/ubuntu-regular.woff2') format('woff2'),
+		url('../assets/fonts/ubuntu-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
 
 html {
 	font-family: sans-serif;

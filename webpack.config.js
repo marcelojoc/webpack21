@@ -7,6 +7,7 @@ module.exports = {
   output: { // directorio de salida y nombre de salida
     path: path.resolve(__dirname, "dist"), 
     filename: "main.js",
+    assetModuleFilename: 'assets/images/[hash][ext][query]' // config para las imagenes  y las fonts cada una en su directorio
   },
 
   resolve:{  // los archivos que debe leer
@@ -33,6 +34,20 @@ module.exports = {
         {  // este loader es para poder importar imagenes , quedan en base 64
           test: /\.png/,
           type: 'asset/resource'
+        },
+        { // este es para mover las fuents locales
+          test: /\.(woff|woff2)$/,
+          use: {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: "application/font-woff",
+              name: "[name].[ext]",
+              outputPath: "./assets/fonts/", // a donde lo voy a llevar
+              publicPath: "./assets/fonts/", // path publico 
+              esModule: false,
+            },
+          }
         }
       ]
   },
