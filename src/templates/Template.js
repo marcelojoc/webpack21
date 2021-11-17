@@ -1,7 +1,7 @@
-import getData from '../utils/getData.js';
-import github from '../assets/images/github.png'; // importo las imagenes en el archivo
-import instagram from '../assets/images/instagram.png';
-import twitter from '../assets/images/twitter.png';
+import getData from '@utils/getData.js';  //  las  importaciones estan hechas  con alias  para facilitar las  rutas
+import github from '@images/github.png'; // importo las imagenes en el archivo
+import instagram from '@images/instagram.png';
+import twitter from '@images/twitter.png';
 
 
 const Template = async () => {

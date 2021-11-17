@@ -1,6 +1,6 @@
-import Template from './templates/Template.js';
-import './styles/main.css';
-import './styles/colors.scss';
+import Template from '@templates/Template.js';
+import '@styles/main.css';
+import '@styles/colors.scss';
 
 
 (async function App() {

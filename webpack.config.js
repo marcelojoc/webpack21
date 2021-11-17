@@ -14,7 +14,13 @@ module.exports = {
   },
 
   resolve:{  // los archivos que debe leer
-    extensions:['.js']
+    extensions:['.js'],
+    alias: {   // se pueden añadir alias para las rutas del 
+      '@utils': path.resolve(__dirname, 'src/utils/'),
+      '@templates': path.resolve(__dirname, 'src/templates/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@images': path.resolve(__dirname, 'src/assets/images/'),
+    }
 
   },
 
@@ -47,7 +53,7 @@ module.exports = {
               mimetype: "application/font-woff",
               name: "[name].[ext]",
               outputPath: "./assets/fonts/", // a donde lo voy a llevar
-              publicPath: "./assets/fonts/", // path publico 
+              publicPath: "../assets/fonts/", // path publico 
               esModule: false,
             },
           }
