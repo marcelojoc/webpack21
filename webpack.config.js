@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // plugin para manejar html
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // plugin para manejar css iportado en js
+const CopyPlugin = require('copy-webpack-plugin');  // para copiar archivos con webpack
 module.exports = {
   entry: "./src/index.js", // nombre de archivo de entrada
   output: { // directorio de salida y nombre de salida
@@ -39,6 +40,14 @@ module.exports = {
       filename: './index.html'
     }),
     new MiniCssExtractPlugin(), // plugin para css  en diferentes documentos
+    new CopyPlugin({ // aqui le digo que archivos voy a mover
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "assets/images"),
+          to: "assets/images"
+        }
+      ]
+    })
   ]
 
 
