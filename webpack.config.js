@@ -5,6 +5,8 @@ const CopyPlugin = require('copy-webpack-plugin');  // para copiar archivos con 
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');  // para minimizar el css
 const TerserPlugin = require('terser-webpack-plugin');  // para hashear los contenidos
 const Dotenv = require('dotenv-webpack');  // para las variables  de entorno 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 module.exports = {
   entry: "./src/index.js", // nombre de archivo de entrada
@@ -80,6 +82,7 @@ module.exports = {
       ]
     }),
     new Dotenv(),  // instancio  dot env 
+    new CleanWebpackPlugin(),//  para limpiar el proyecto antes de enviar a prod
   ],
 
   optimization: {  // esta parte es para soporte de optimizacion para css y js 
