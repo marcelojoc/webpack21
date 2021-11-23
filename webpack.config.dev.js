@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // plugin para manejar
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // plugin para manejar css iportado en js
 const CopyPlugin = require('copy-webpack-plugin');  // para copiar archivos con webpack
 const Dotenv = require('dotenv-webpack');  // para las variables  de entorno 
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
 module.exports = {
   entry: "./src/index.js", // nombre de archivo de entrada
   output: { // directorio de salida y nombre de salida
@@ -79,14 +79,22 @@ module.exports = {
       ]
     }),
     new Dotenv(),  // instancio  dot env 
+    new BundleAnalyzerPlugin(), // analizador de bundle resultante
   ],
 
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     compress: true,
-    historyApiFallback: true,
     port: 3006,
   },
 
+
+
+// npm webpack --profile --json > stats.json   para generar  el stats  de el proyecto
+// npx webpack --profile --json > stats.json
+// npx webpack-bundle-analyzer stats.json
 
 };
