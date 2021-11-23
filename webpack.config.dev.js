@@ -12,7 +12,7 @@ module.exports = {
     assetModuleFilename: 'assets/images/[hash][ext][query]' // config para las imagenes  y las fonts cada una en su directorio
   },
   mode:'development',  // puedo colocar en modo desarrollo  sin necesidad de optimizar los  css 
-  watch: true, // este valor es para que este escucando los cambios para los archivos de la aplicacion
+  //watch: true, // este valor es para que este escucando los cambios para los archivos de la aplicacion
   resolve:{  // los archivos que debe leer
     extensions:['.js'],
     alias: {   // se pueden añadir alias para las rutas del 
@@ -81,7 +81,12 @@ module.exports = {
     new Dotenv(),  // instancio  dot env 
   ],
 
-
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    historyApiFallback: true,
+    port: 3006,
+  },
 
 
 };
