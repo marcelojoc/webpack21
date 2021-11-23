@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // plugin para manejar
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // plugin para manejar css iportado en js
 const CopyPlugin = require('copy-webpack-plugin');  // para copiar archivos con webpack
 const Dotenv = require('dotenv-webpack');  // para las variables  de entorno 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 module.exports = {
   entry: "./src/index.js", // nombre de archivo de entrada
   output: { // directorio de salida y nombre de salida
@@ -13,6 +14,7 @@ module.exports = {
   },
   mode:'development',  // puedo colocar en modo desarrollo  sin necesidad de optimizar los  css 
   //watch: true, // este valor es para que este escucando los cambios para los archivos de la aplicacion
+  devtool: 'source-map',
   resolve:{  // los archivos que debe leer
     extensions:['.js'],
     alias: {   // se pueden añadir alias para las rutas del 
